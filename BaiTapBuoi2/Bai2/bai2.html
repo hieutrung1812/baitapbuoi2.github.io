@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            background-image: url(../img/path.jpg);
+        }
+    </style>
+
+</head>
+<body>
+
+    <center><canvas id="myCanvas" width="300" height="320"></canvas></center>
+    
+
+    <Script>
+        var x = 50;
+        var y = 20;
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        // var img;
+        // img = new Image();
+        // img.src = '../img/ufo.png';
+
+        function drawufo() {
+            context.beginPath();
+            context.arc(x,y,20,0,Math.PI * 2);
+            context.fillStyle = 'red';
+            context.fill();
+            context.closePath();
+        }
+
+        setInterval(function (){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            drawufo();
+
+            
+            if(y < 220 & x < 130){
+                x +=1;
+                y += 3;
+            }else {
+                x += 1;
+                y += -2;
+            }
+        }, 100);
+        
+        // context.arc(50,50,20,0,Math.PI * 2);
+        //     context.fillStyle = 'red';
+        //     context.fill();
+
+    </Script>
+
+</body>
+</html>

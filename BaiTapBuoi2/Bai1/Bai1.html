@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiTap1</title>
+    <style>
+        canvas{
+            height: 300px;
+            width: 400px;
+            border: 1px solid black;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bắt Đầu</h1>
+        <canvas id="myCanvas"> 
+            
+        </canvas>
+    <h1>Kết Thúc</h1>
+
+    <script>
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        //xác định kích thước
+        var padding = 30;
+        var width = 190;
+        var height = 110;
+        //bắt đầu vẽ
+        ctx.beginPath();
+        ctx.moveTo(padding+width/2,padding);
+        ctx.lineTo(padding+width,padding+height);
+        ctx.lineTo(padding,padding+height);
+        ctx.closePath();
+        //đổ màu cho tam giác
+        // ctx.fillStyle = "yellow";
+        // ctx.fill();
+        //tạo Gradient
+        var grd = ctx.createLinearGradient(0,0,0,height);
+        grd.addColorStop(0, "#ffc821");
+        grd.addColorStop(1,  "#faf100");
+        //đổ bóng
+        ctx.shadowBlur=8;
+        ctx.shadowColor = "black"
+        //đổ màu
+        ctx.fillStyle = grd;
+        ctx.fill();
+        
+        //bỏ shadow
+        ctx.shadowColor = "transparent";
+         //vẽ tam giác vàng
+        ctx.lineWidth= 15;
+        ctx.strokeStyle = grd;
+        ctx.lineJoin = "round";
+        ctx.stroke();
+         //tạo gaden xám
+        grd = ctx.createLinearGradient(0,padding,0,padding+height);
+        grd.addColorStop(0,"transparent");
+        grd.addColorStop(0.5,"transparent");
+        grd.addColorStop(0.5,"#dcaa08");
+        grd.addColorStop(1,"transparent");
+        ctx.fillStyle = grd;
+        ctx.fill();
+        //vẽ tam giác đen
+        ctx.lineWidth=5;
+        ctx.strokeStyle = "black";
+        ctx.lineJoin = "round";
+        ctx.stroke();
+        //vẽ hình !
+        ctx.font = "bold 80px Time New Roman";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle"
+        ctx.fillText("!",padding+width/2,padding+height/1.7);
+       
+
+    </script>
+
+</body>
+</html>
